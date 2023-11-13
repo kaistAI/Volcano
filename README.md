@@ -1,5 +1,5 @@
 # 🌋 Volcano: Mitigating Multimodal Hallucination through Self-Feedback Guided Revision
-This is the official github for "Volcano: Mitigating Multimodal Hallucination through Self-Feedback Guided Revision". <br>
+This is the official github for "Volcano: Mitigating Multimodal Hallucination through Self-Feedback Guided Revision". <br><br>
 Volcano employs a single LMM to generate initial responses, feedback, and revisions, as well as decisions to accept revisions. It follows a sequential procedure of an iterative critique-revision-decide loop. <br>
 [\[paper\]]() [\[volcano-7b\]](https://huggingface.co/kaist-ai/volcano-7b) [\[volcano-13b\]](https://huggingface.co/kaist-ai/volcano-13b) [\[dataset\]](https://huggingface.co/datasets/kaist-ai/volcano-train)
 
