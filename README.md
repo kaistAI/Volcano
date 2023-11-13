@@ -3,7 +3,7 @@ This is the official github for "Volcano: Mitigating Multimodal Hallucination th
 Volcano employs a single LMM to generate initial responses, feedback, and revisions, as well as decisions to accept revisions. It follows a sequential procedure of an iterative critique-revision-decide loop. <br>
 
 ## News
-\[Nov 13, 2023\] We released the first version of Volcano! Check out the [paper](), model ([7b](https://huggingface.co/kaist-ai/volcano-7b), [13b](https://huggingface.co/kaist-ai/volcano-13b)) and [training dataset](https://huggingface.co/datasets/kaist-ai/volcano-train)!
+\[Nov 13, 2023\] We released the first version of Volcano! Check out the [paper](), model [volcano-7b](https://huggingface.co/kaist-ai/volcano-7b), [volcano-13b](https://huggingface.co/kaist-ai/volcano-13b) and [training dataset](https://huggingface.co/datasets/kaist-ai/volcano-train)!
 ## Overview
 ![figure2_final](https://github.com/kaistAI/Volcano/assets/72010172/267b2ba6-3895-4e46-9be3-e8a0bee984eb)
 
