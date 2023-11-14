@@ -1,4 +1,3 @@
-![DALL·E 2023-10-31 16 18 19 - Photo of a whimsical, cartoonish llama standing confidently in the foreground with an expression of curiosity  Behind the llama, a magnificent volcano](https://github.com/kaistAI/Volcano/assets/72010172/4e7c12e7-b773-45d0-90f0-17a15fc3c37e)
 # 🌋 Volcano: Mitigating Multimodal Hallucination through Self-Feedback Guided Revision
 This is the official github for "Volcano: Mitigating Multimodal Hallucination through Self-Feedback Guided Revision". <br><br>
 Volcano employs a single LMM to generate initial responses, feedback, and revisions, as well as decisions to accept revisions. It follows a sequential procedure of an iterative critique-revision-decide loop. <br>
