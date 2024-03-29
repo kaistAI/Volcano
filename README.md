@@ -5,7 +5,7 @@ Volcano employs a single LMM to generate initial responses, feedback, and revisi
 - Model weights ([7B](https://huggingface.co/kaist-ai/volcano-7b), [13B](https://huggingface.co/kaist-ai/volcano-13b))
 - [Training dataset](https://huggingface.co/datasets/kaist-ai/volcano-train)
 ## News
-\[Mar 14, 2023\] Our work has been accepted NAACL 2024 main conference! See you Mexico City 🇲🇽
+\[Mar 14, 2023\] Our work has been accepted NAACL 2024 main conference! See you Mexico City 🇲🇽 <br>
 \[Nov 14, 2023\] We released the first version of Volcano! Check out the paper, model and training dataset.
 ## Overview
 ![figure2_final](https://github.com/kaistAI/Volcano/assets/72010172/b3f2389d-c1a8-4fd7-921d-0f06de826ae0)
