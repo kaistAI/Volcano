@@ -1,6 +1,6 @@
 # Reproducing visualization of attention to image features
 
-Following this README, you can reproduce our results in Figure 4 and 5 of our paper.
+Following this README, you can reproduce our results in Figure 4 and 5 of our [paper](https://arxiv.org/abs/2311.07362).
 In our qualitative analysis, we visualize how *output tokens* attend to *input image features* while generating *initial response* and *feedback*.
 
 ## Setting up & Finishing analysis

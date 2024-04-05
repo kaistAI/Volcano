@@ -6,14 +6,29 @@ Volcano employs a single LMM to generate initial responses, feedback, and revisi
 - [Training dataset](https://huggingface.co/datasets/kaist-ai/volcano-train)
 
 ## News
-\[Apr 5, 2024\] We uploaded our analysis code.
-\[Mar 29, 2024\] We uploaded our train and inference code.
+\[Apr 5, 2024\] We uploaded our [analysis](#qualitative-analysis) code.  
+\[Mar 29, 2024\] We uploaded our [train](#train) and [inference](#inference) code.  
 \[Mar 14, 2024\] Our work was accepted to NAACL 2024 main conference! See you in Mexico City 🇲🇽 <br>
-\[Nov 14, 2023\] We released the first version of Volcano! Check out the paper, model and training dataset.
+\[Nov 14, 2023\] We released the first version of Volcano! Check out the [paper]((https://arxiv.org/abs/2311.07362)), [model](https://huggingface.co/kaist-ai/volcano-13b) and [training dataset](https://huggingface.co/datasets/kaist-ai/volcano-train).
 
 ## Overview
 ![volcano_figure2](./volcano_figure2.png)
-Large multimodal models suffer from multimodal hallucination, where they provide incorrect responses misaligned with the given visual information. Recent works have conjectured that one of the reasons behind multimodal hallucination is due to the vision encoder failing to ground on the image properly. To mitigate this issue, we propose a novel approach that leverages self-feedback as visual cues. Building on this approach, we introduce **Volcano**, a multimodal self-feedback guided revision model. Volcano generates natural language feedback to its initial response based on the provided visual information and utilizes this feedback to self-revise its initial response. Volcano effectively reduces multimodal hallucination and achieves state-of-the-art on MMHal-Bench, POPE, and GAVIE. It also improves on general multimodal abilities and outperforms previous models on MM-Vet and MMBench. Through qualitative analysis, we show that Volcano's feedback is properly grounded on the image than the initial response. This indicates that Volcano can provide itself with richer visual information through feedback generation, leading to self-correct hallucinations. We publicly release our model, data, and code
+
+> Large multimodal models suffer from multimodal hallucination, where they provide incorrect responses misaligned with the given visual information. Recent works have conjectured that one of the reasons behind multimodal hallucination is due to the vision encoder failing to ground on the image properly. To mitigate this issue, we propose a novel approach that leverages self-feedback as visual cues. Building on this approach, we introduce **Volcano**, a multimodal self-feedback guided revision model. Volcano generates natural language feedback to its initial response based on the provided visual information and utilizes this feedback to self-revise its initial response. Volcano effectively reduces multimodal hallucination and achieves state-of-the-art on [MMHal-Bench](https://huggingface.co/datasets/Shengcao1006/MMHal-Bench), [POPE](https://github.com/RUCAIBox/POPE), and [GAVIE](https://github.com/FuxiaoLiu/LRV-Instruction?tab=readme-ov-file#evaluationgavie). It also improves on general multimodal abilities and outperforms previous models on MM-Vet and MMBench. Through qualitative analysis, we show that Volcano's feedback is properly grounded on the image than the initial response. This indicates that Volcano can provide itself with richer visual information through feedback generation, leading to self-correct hallucinations. We publicly release our model, data, and code.
+
+| Model            | MMHal-Bench Score ↑ | MMHal-Bench Hal rate ↓ | POPE Acc ↑ | POPE F1 ↑ | GAVIE Acc score ↑ | GAVIE Rel score ↑ | GAVIE Avg score ↑ |
+|------------------|---------------------|------------|------------|-----------|-------------------|-------------------|-------------------|
+| MiniGPT-4 7B     | -                   | -          | 68.4       | 74.5      | 4.14              | 5.81              | 4.98              |
+| mPLUG-Owl 7B     | -                   | -          | 51.3       | 67.2      | 4.84              | 6.35              | 5.6               |
+| InstructBLIP 7B  | 2.1                 | 0.58       | 71.5       | 80.0      | 5.93              | 7.34              | 6.64              |
+| LLaVA-SFT+ 7B    | 1.76                | 0.67       | 81.6       | 82.7      | 5.95              | 8.16              | 7.06              |
+| LLaVA-RLHF 7B    | 2.05                | 0.68       | 81.8       | 81.5      | 6.01              | 8.11              | 7.06              |
+| LLaVA-SFT+ 13B   | 2.43                | 0.55       | 83.2       | 82.8      | 5.95              | 8.2               | 7.09              |
+| LLaVA-RLHF 13B   | 2.53                | 0.57       | 83.1       | 81.9      | 6.46              | 8.22              | 7.34              |
+| LLaVA-1.5 7B     | 2.42                | 0.55       | 86.1       | 85.1      | 6.42              | 8.2               | 7.31              |
+| LLaVA-1.5 13B    | 2.54                | 0.52       | 86.2       | 85.2      | 6.8               | 8.47              | 7.64              |
+| **🌋Volcano 7B**       | 2.6                 | 0.49       | 88.2       | **87.7**  | 6.52              | 8.4               | 7.46              |
+| **🌋Volcano 13B**      | **2.64**            | **0.48**   | **88.3**   | **87.7**  | **6.94**          | **8.72**          | **7.83**          |
 
 
 ## Setup
@@ -108,7 +123,7 @@ python -m llava.eval.volcano_gavie \
 ```
 
 ## Qualitative analysis
-To reproduce attention heatmaps in our paper, please refer to [these instructions](./llava/visualize/README.md).
+For reproduction of attention heatmaps in our paper, we created a [dedicated folder with step-by-step instructions](./llava/visualize).
 
 ## Citation
 ```
