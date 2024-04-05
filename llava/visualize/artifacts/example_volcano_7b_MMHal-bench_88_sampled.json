@@ -1,0 +1,21 @@
+[
+    {
+        "image_id": "0b566984f99efd97",
+        "image_src": "https://farm8.staticflickr.com/2730/4272595396_785d273725_o.jpg",
+        "question": "What is the color of the pot?",
+        "gold_answer": "The color of the pot is silver, with red cherries inside.",
+        "outputs": [
+            "The color of the pot is red.",
+            "The color of the pot is silver."
+        ],
+        "feedback": [
+            "The response provided is incorrect. The color of the pot is not red, but rather silver. The image clearly shows a silver pot holding the red cranberries. It is important to pay attention to the details in the image and accurately describe the color of the pot. Please review the image more carefully and provide a more accurate response.",
+            "The response is incorrect because it states that the color of the pot is silver, whereas the reference answer states that the color of the pot is red. The image contents provide no information about the color of the pot, so the response should not make an assumption about it. The response could be improved by focusing on the information provided in the image and object information, rather than making a random guess."
+        ],
+        "revision": [
+            "The color of the pot is silver.",
+            "The color of the pot is red."
+        ],
+        "stop_iter": 2
+    }
+]
