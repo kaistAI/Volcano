@@ -4,12 +4,18 @@ Volcano employs a single LMM to generate initial responses, feedback, and revisi
 - [Paper](https://arxiv.org/abs/2311.07362) <br>
 - Model weights ([7B](https://huggingface.co/kaist-ai/volcano-7b), [13B](https://huggingface.co/kaist-ai/volcano-13b))
 - [Training dataset](https://huggingface.co/datasets/kaist-ai/volcano-train)
+
 ## News
-\[Mar 14, 2023\] Our work has been accepted NAACL 2024 main conference! See you Mexico City 🇲🇽 <br>
+\[Apr 5, 2024\] We uploaded our analysis code.
+\[Mar 29, 2024\] We uploaded our train and inference code.
+\[Mar 14, 2024\] Our work was accepted to NAACL 2024 main conference! See you in Mexico City 🇲🇽 <br>
 \[Nov 14, 2023\] We released the first version of Volcano! Check out the paper, model and training dataset.
+
 ## Overview
-![figure2_final](https://github.com/kaistAI/Volcano/assets/72010172/b3f2389d-c1a8-4fd7-921d-0f06de826ae0)
-Large multimodal models (LMMs) suffer from multimodal hallucination, where they provide incorrect responses misaligned with the given visual information. Previous work shows that the cause of this issue is that the vision encoder fails to ground the image properly. We propose a novel approach that leverages self-feedback as visual cues, guiding the model to mitigate the hallucination in its own response. Building on this approach, we introduce **Volcano**, a multimodal self-feedback guided revision model. Volcano generates natural language feedback to its initial response based on the provided visual information and utilizes this feedback to self-revise its initial response. Volcano effectively reduces multimodal hallucination and achieves state-of-the-art on MMHal-Bench, POPE, and GAVIE. It also improves on general multimodal abilities and outperforms previous models on MM-Vet and MMBench. Through a qualitative analysis, we show that Volcano's feedback is better grounded in the image than the initial response. This means that Volcano can provide itself with richer visual information, helping alleviate multimodal hallucination. We publicly release Volcano models of 7B and 13B sizes along with the data and code.
+![volcano_figure2](./volcano_figure2.png)
+Large multimodal models suffer from multimodal hallucination, where they provide incorrect responses misaligned with the given visual information. Recent works have conjectured that one of the reasons behind multimodal hallucination is due to the vision encoder failing to ground on the image properly. To mitigate this issue, we propose a novel approach that leverages self-feedback as visual cues. Building on this approach, we introduce **Volcano**, a multimodal self-feedback guided revision model. Volcano generates natural language feedback to its initial response based on the provided visual information and utilizes this feedback to self-revise its initial response. Volcano effectively reduces multimodal hallucination and achieves state-of-the-art on MMHal-Bench, POPE, and GAVIE. It also improves on general multimodal abilities and outperforms previous models on MM-Vet and MMBench. Through qualitative analysis, we show that Volcano's feedback is properly grounded on the image than the initial response. This indicates that Volcano can provide itself with richer visual information through feedback generation, leading to self-correct hallucinations. We publicly release our model, data, and code
+
+
 ## Setup
 ```bash
 conda create -n volcano python=3.10 -y
@@ -19,6 +25,7 @@ pip install -e .
 pip install -e ".[train]"
 pip install flash-attn --no-build-isolation
 ```
+
 ## Input and Output Format of Volcano
 ```
 # Critique
@@ -37,7 +44,9 @@ A. {Initial answer}
 B. {Revised answer}
 Answer with the option's letter from the given choices directly.
 ```
+
 Volcano generates an initial response and then repeats the self-revision process a total of 3 times before producing the final answer as the determined response. You can check the [training data](https://huggingface.co/datasets/kaist-ai/volcano-train) for Volcano.
+
 ## Train
 We use [LLaVA](https://github.com/haotian-liu/LLaVA) codebase in developing Volcano. Therefore, the following training & inference script is tailored to this. If you plan to start from a different VLM codebase, you should adapt the format of the data to suit your custom code.
 ```
@@ -97,14 +106,16 @@ python -m llava.eval.volcano_gavie \
     --input <INPUT> \
     --output <OUTPUT>
 ```
+
+## Qualitative analysis
+To reproduce attention heatmaps in our paper, please refer to [these instructions](./llava/visualize/README.md).
+
 ## Citation
 ```
-@misc{lee2023volcano,
-      title={Volcano: Mitigating Multimodal Hallucination through Self-Feedback Guided Revision}, 
-      author={Seongyun Lee and Sue Hyun Park and Yongrae Jo and Minjoon Seo},
-      year={2023},
-      eprint={2311.07362},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@article{lee2023volcano,
+  title={Volcano: mitigating multimodal hallucination through self-feedback guided revision},
+  author={Lee, Seongyun and Park, Sue Hyun and Jo, Yongrae and Seo, Minjoon},
+  journal={arXiv preprint arXiv:2311.07362},
+  year={2023}
 }
 ```
