@@ -12,7 +12,9 @@ Volcano employs a single LMM to generate initial responses, feedback, and revisi
 \[Nov 14, 2023\] We released the first version of Volcano! Check out the [paper]((https://arxiv.org/abs/2311.07362)), [model](https://huggingface.co/kaist-ai/volcano-13b) and [training dataset](https://huggingface.co/datasets/kaist-ai/volcano-train).
 
 ## Overview
-![volcano_figure2](./volcano_figure2.png)
+![method](assets/method.png)
+
+![case_attention_heatmap](assets/case_attention_heatmap.png)
 
 > Large multimodal models suffer from multimodal hallucination, where they provide incorrect responses misaligned with the given visual information. Recent works have conjectured that one of the reasons behind multimodal hallucination is due to the vision encoder failing to ground on the image properly. To mitigate this issue, we propose a novel approach that leverages self-feedback as visual cues. Building on this approach, we introduce **Volcano**, a multimodal self-feedback guided revision model. Volcano generates natural language feedback to its initial response based on the provided visual information and utilizes this feedback to self-revise its initial response. Volcano effectively reduces multimodal hallucination and achieves state-of-the-art on [MMHal-Bench](https://huggingface.co/datasets/Shengcao1006/MMHal-Bench), [POPE](https://github.com/RUCAIBox/POPE), and [GAVIE](https://github.com/FuxiaoLiu/LRV-Instruction?tab=readme-ov-file#evaluationgavie). It also improves on general multimodal abilities and outperforms previous models on MM-Vet and MMBench. Through qualitative analysis, we show that Volcano's feedback is properly grounded on the image than the initial response. This indicates that Volcano can provide itself with richer visual information through feedback generation, leading to self-correct hallucinations. We publicly release our model, data, and code.
 
